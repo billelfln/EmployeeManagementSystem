@@ -29,6 +29,7 @@ namespace EmployeeManagementSystem
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.signup_btn = new System.Windows.Forms.Button();
             this.signup_showPass = new System.Windows.Forms.CheckBox();
             this.signup_password = new System.Windows.Forms.TextBox();
@@ -42,8 +43,10 @@ namespace EmployeeManagementSystem
             this.label6 = new System.Windows.Forms.Label();
             this.signup_loginBtn = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // signup_btn
@@ -109,6 +112,7 @@ namespace EmployeeManagementSystem
             this.signup_username.Name = "signup_username";
             this.signup_username.Size = new System.Drawing.Size(304, 36);
             this.signup_username.TabIndex = 13;
+            this.signup_username.Validating += new System.ComponentModel.CancelEventHandler(this.signup_username_Validating);
             // 
             // label3
             // 
@@ -213,6 +217,10 @@ namespace EmployeeManagementSystem
             this.label5.TabIndex = 0;
             this.label5.Text = "Login your Account";
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -237,6 +245,7 @@ namespace EmployeeManagementSystem
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -257,5 +266,6 @@ namespace EmployeeManagementSystem
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button signup_loginBtn;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

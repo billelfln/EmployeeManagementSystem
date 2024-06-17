@@ -111,5 +111,32 @@ namespace EmployeeManagementSystem
         {
             signup_password.PasswordChar = signup_showPass.Checked ? '\0' : '*';
         }
+
+        
+        private bool IsContainMajusculChar(string text )
+        {
+            int cont = 0;
+            foreach (char c in text) {
+                if (char.IsUpper(c))
+                {
+                    cont++;
+                }
+            }
+            return (cont != 0) ;
+        }
+        private void signup_username_Validating(object sender, CancelEventArgs e)
+        {
+            if (!IsContainMajusculChar(signup_username.Text))
+            {
+
+                errorProvider1.SetError(signup_username, "should Have at least one Majuscul char");
+                e.Cancel = true;
+            }else
+            {
+
+                errorProvider1.SetError(signup_username, "");
+                e.Cancel = false;
+            }
+        }
     }
 }
